@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import NavBar from "./NavBar";
 import { BookContext } from "../context/BookContext";
 import { Link } from "react-router-dom";
@@ -32,7 +32,7 @@ const Books = () => {
                                     <td>{book.title}</td>
                                     <td>{book.author}</td>
                                     <td>
-                                        <button>Edit</button>
+                                        <Link to={`/update/${book.id}`}>Edit</Link>
                                         <button onClick={handleDelete(book.id)}>Delete</button>
                                     </td>
                                 </tr>

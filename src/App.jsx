@@ -7,17 +7,24 @@ import Home from './components/Home';
 import Books from './components/Books';
 import BookContextProvider from './context/BookContext';
 import Addbook from './components/AddBook';
+import UpdateBook from './components/UpdateBook';
+import UserContextProvider from './context/UserContext';
+import Users from './components/Users';
 
 function App() {
 
     return (
-        <BookContextProvider>
-            <Routes>
-                <Route path='/' element={<Home />}></Route>
-                <Route path='/books' element={<Books />}></Route>
-                <Route path='/add' element={<Addbook />}></Route>
-            </Routes>
-        </BookContextProvider>
+        <UserContextProvider>
+            <BookContextProvider>
+                <Routes>
+                    <Route path='/' element={<Home />}></Route>
+                    <Route path='/books' element={<Books />}></Route>
+                    <Route path='/add' element={<Addbook />}></Route>
+                    <Route path='/update/:id' element={<UpdateBook />}></Route>
+                    <Route path='/users' element={<Users />}></Route>
+                </Routes>
+            </BookContextProvider>
+        </UserContextProvider>
     )
 }
 
