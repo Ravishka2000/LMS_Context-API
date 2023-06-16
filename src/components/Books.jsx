@@ -1,15 +1,21 @@
 import React, { useContext } from "react";
 import NavBar from "./NavBar";
 import { BookContext } from "../context/BookContext";
+import { Link } from "react-router-dom";
 
 const Books = () => {
 
-    const { bookList } = useContext(BookContext)
+    const { bookList, deleteBook } = useContext(BookContext)
+
+    const handleDelete = (id) => () => {
+        deleteBook(id);
+    }
 
     return(
         <div>
             <NavBar/>
             <h1>All Books</h1>
+            <Link to={'/add'} >Add Book</Link>
             <div>
                     <h2>Books</h2>
                     <table style={{}}>
@@ -27,7 +33,7 @@ const Books = () => {
                                     <td>{book.author}</td>
                                     <td>
                                         <button>Edit</button>
-                                        <button>Delete</button>
+                                        <button onClick={handleDelete(book.id)}>Delete</button>
                                     </td>
                                 </tr>
                             ))}

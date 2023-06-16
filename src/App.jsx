@@ -6,6 +6,7 @@ import { Routes, Route } from 'react-router-dom';
 import Home from './components/Home';
 import Books from './components/Books';
 import BookContextProvider from './context/BookContext';
+import Addbook from './components/AddBook';
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
             <Routes>
                 <Route path='/' element={<Home />}></Route>
                 <Route path='/books' element={<Books />}></Route>
+                <Route path='/add' element={<Addbook />}></Route>
             </Routes>
         </BookContextProvider>
     )

@@ -10,9 +10,14 @@ const BookContextProvider = ({ children }) => {
         setBookList([...bookList, book]);
     }
 
+    const deleteBook = (id) => {
+        setBookList(bookList.filter((book) => book.id !== id));
+    };
+
     const value = {
         bookList,
-        addBook
+        addBook,
+        deleteBook
     };
 
     return <BookContext.Provider value={value}>{children}</BookContext.Provider>
